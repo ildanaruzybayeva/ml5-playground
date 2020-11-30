@@ -1,13 +1,16 @@
 let mobilenet;
 let puffin;
 
+const URL =
+  "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg";
+
 function modelReady() {
   console.log("Model is ready!!!");
 }
 
 function imageReady() {
-  image(puffin, 0, 0, width, height);
-  mobilenet.predict(puffin, gotResult);
+  image(userImg, 0, 0, width, height);
+  mobilenet.predict(userImg, gotResult);
 }
 
 function gotResult(error, results) {
@@ -24,8 +27,8 @@ function gotResult(error, results) {
 
 function setup() {
   createCanvas(640, 480);
-  puffin = createImg("images/penguin.jpg", imageReady);
-  puffin.hide();
+  userImg = createImg(URL, imageReady);
+  userImg.hide();
   background(0);
   mobilenet = ml5.imageClassifier("MobileNet", modelReady);
 }
