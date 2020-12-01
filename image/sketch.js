@@ -2,8 +2,7 @@ let mobilenet;
 let puffin;
 
 const URL =
-  "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg";
-
+  "https://thumbs.dreamstime.com/b/malay-tapir-asian-tapir-looks-strange-interesting-tapirus-indicus-90330981.jpg";
 function modelReady() {
   console.log("Model is ready!!!");
 }
@@ -19,9 +18,7 @@ function gotResult(error, results) {
   } else {
     console.log(results);
     let label = results[0].className;
-    fill(0);
-    textSize(30);
-    text(label, 10, height - 10);
+    createP(label);
   }
 }
 
